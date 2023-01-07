@@ -4,11 +4,26 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="style.css" rel="stylesheet">
   <title>Ludum Dare 52</title>
 </head>
 <body>
-  <div id="root"></div>
-  <srcipt src="main.ts" type="module"></srcipt>
+  <div id="root">
+    <header class="site-header">
+      <h1>Ludum Dare 52: Harvest</h1>
+    </header>
+
+    <canvas id="canvas"></canvas>
+    
+    <section class="sidebar">
+      <div class="tool-selector"></div>
+      <div class="seed-selector"></div>
+    </section>
+  </div>
+
+  <b id="brb">BRB</b>
+
+  <script src="main.ts" type="module"></script>
 </body>
 </html>
