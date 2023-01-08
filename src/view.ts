@@ -10,7 +10,7 @@ if (!ctx)
 ctx.font = '3rem Monospace'
 
 const metrics    = ctx.measureText('#')
-const tileHeight = metrics.fontBoundingBoxAscent + metrics.fontBoundingBoxDescent
+const tileHeight = metrics.fontBoundingBoxAscent + metrics.fontBoundingBoxDescent + 1
 const tileWidth  = metrics.width
 const width      = tileWidth  * columns
 const height     = tileHeight * rows
