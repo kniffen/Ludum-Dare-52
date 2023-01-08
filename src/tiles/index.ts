@@ -42,6 +42,7 @@ const tiles: Tiles = {
     growRate: 0.0001,
     background: '#43260f',
     stages: [
+      {char: '░', color: '#435313'},
       {char: '░', color: '#7dc85a'},
       {char: '▒', color: '#7dc85a'},
       {char: '▓', color: '#7dc85a'},
