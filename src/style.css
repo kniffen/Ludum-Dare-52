@@ -62,6 +62,10 @@ select {
   border-color: white;
 }
 
+.info {
+  margin-block-start: auto;
+}
+
 #brb {
   display: none;
   position: fixed;
