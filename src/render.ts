@@ -30,9 +30,10 @@ export default function render() {
         tileHeight
       )
 
-      ctx.fillStyle = tile.stages[tile.stage].color
+      const stage = Math.floor(tile.stage)
+      ctx.fillStyle = tile.stages[stage].color
       ctx.fillText(
-        tile.stages[tile.stage].char,
+        tile.stages[stage].char,
         marginLeft + x * tileWidth,
         marginTop  + y * tileHeight
       )

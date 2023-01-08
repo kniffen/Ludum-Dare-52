@@ -22,7 +22,7 @@ const currentTool = {
         break
 
       case ToolId.Cultivator:
-        if (crop.stage > 0) break
+        if (crop.stage >= 1) break
         grid[row][column] = createTile(TileType.CultivatedDirt)
         break
 

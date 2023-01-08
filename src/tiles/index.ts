@@ -24,7 +24,7 @@ export enum TileType {
 const tiles = {
   [TileType.Grass]: {
     name: 'Grass',
-    growRate: 2,
+    growRate: 0.0001,
     background: '#43260f',
     stages: [
       {char: '░', color: '#7dc85a'},
@@ -35,7 +35,7 @@ const tiles = {
 
   [TileType.Wheat]: {
     name: 'Wheat',
-    growRate: 10,
+    growRate: 0.0002,
     background: '#43260f',
     stages: [
       {char: '░', color: '#adbc10'},
@@ -46,7 +46,7 @@ const tiles = {
 
   [TileType.Corn]: {
     name: 'Corn',
-    growRate: 10,
+    growRate: 0.0005,
     background: '#43260f',
     stages: [
       {char: '░', color: '#5c7a0b'},
@@ -58,7 +58,7 @@ const tiles = {
   
   [TileType.Carrot]: {
     name: 'Carrot',
-    growRate: 10,
+    growRate: 0.0008,
     background: '#43260f',
     stages: [
       {char: '░', color: '#0b7a23'},
@@ -69,7 +69,7 @@ const tiles = {
 
   [TileType.Potato]: {
     name: 'Potato',
-    growRate: 10,
+    growRate: 0.001,
     background: '#43260f',
     stages: [
       {char: '░', color: '#adbc10'},
@@ -80,7 +80,7 @@ const tiles = {
 
   [TileType.CultivatedDirt]: {
     name: 'Cultivated Dirt',
-    growRate: 0,
+    growRate: 1,
     background: '#43260f',
     stages: [
       {char: '░', color: '#6e6e6e'}
