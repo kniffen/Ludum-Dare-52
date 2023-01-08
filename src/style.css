@@ -65,16 +65,3 @@ select {
 .info {
   margin-block-start: auto;
 }
-
-#brb {
-  display: none;
-  position: fixed;
-  inset: 4rem;
-  font-size: 12rem;
-  color: red;
-}
-
-/* Debug */
-canvas {
-  border: 1px solid white;
-}
