@@ -5,15 +5,15 @@ import {
 } from './view'
 
 import { currentTool } from './tools'
-import grid, { selectedCell } from './grid'
+import grid, { selectedCell, columns, rows } from './grid'
 
 canvas.addEventListener('mousemove', (e) => {
   const column = Math.floor(e.offsetX / tileWidth)
   const row    = Math.floor(e.offsetY / tileHeight)
 
-  selectedCell.ref    = grid[row][column]
-  selectedCell.column = column
-  selectedCell.row    = row
+  selectedCell.column = column > 0 && column < columns ? column : 0
+  selectedCell.row    = row    > 0 && row    < rows    ? row    : 0
+  selectedCell.ref    = grid[selectedCell.row][selectedCell.column]
 
   currentTool.use()
 })
