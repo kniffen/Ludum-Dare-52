@@ -18,6 +18,7 @@ export enum TileType {
   Corn,
   Carrot,
   Potato,
+  Beet,
   CultivatedDirt
 }
 
@@ -64,7 +65,6 @@ const tiles = {
       {char: '░', color: '#0b7a23'},
       {char: '▒', color: '#eb8f1e'},
     ]
-
   },
 
   [TileType.Potato]: {
@@ -75,7 +75,16 @@ const tiles = {
       {char: '░', color: '#adbc10'},
       {char: '▒', color: '#adbc10'},
     ]
+  },
 
+  [TileType.Beet]: {
+    name: 'Beets',
+    growRate: 0.0005,
+    background: '#43260f',
+    stages: [
+      {char: '░', color: '#7b1c87'},
+      {char: '░', color: '#b22424'},
+    ]
   },
 
   [TileType.CultivatedDirt]: {

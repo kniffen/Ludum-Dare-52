@@ -4,7 +4,8 @@ export enum SeedId {
   Wheat,
   Corn,
   Carrot,
-  Potato
+  Potato,
+  Beet
 }
 
 interface Seed {
@@ -18,6 +19,7 @@ const seeds: Seed[] = [
   {id: SeedId.Corn,   name: 'Corn',   tile: TileType.Corn},
   {id: SeedId.Carrot, name: 'Carrot', tile: TileType.Carrot},
   {id: SeedId.Potato, name: 'Potato', tile: TileType.Potato},
+  {id: SeedId.Beet,   name: 'Beets', tile: TileType.Beet},
 ]
 
 export default seeds
