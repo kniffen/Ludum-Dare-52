@@ -32,7 +32,7 @@ const tools: Tool[] = [
     id:     ToolId.Hoe,
     char:   '7',
     name:   'Hoe',
-    usedOn: [TileType.Carrot, TileType.Potato],
+    usedOn: [TileType.Carrot, TileType.Potato, TileType.Beet],
   },
   { 
     id:     ToolId.Sickle,
