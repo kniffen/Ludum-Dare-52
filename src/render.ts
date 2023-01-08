@@ -41,7 +41,7 @@ export default function render() {
   }
 
   // Selector
-  ctx.strokeStyle = '#E00000'
+  ctx.strokeStyle = '#FFFFFF'
   ctx.strokeRect(
     selectedCell.column * tileWidth,
     selectedCell.row    * tileHeight,
