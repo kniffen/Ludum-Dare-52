@@ -1,5 +1,5 @@
 import './selector'
-import seeds from './seeds'
+import seed from './seeds'
 
-export default seeds
-export { default as currentSeed } from './currentSeed'
+export default seed
+export * from './seeds'

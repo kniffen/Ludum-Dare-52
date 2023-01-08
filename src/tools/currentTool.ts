@@ -1,7 +1,8 @@
 import tools, { ToolId } from './tools'
 import grid, { selectedCell } from '../grid'
 import { createTile, TileType } from '../tiles'
-import seeds, { currentSeed } from '../seeds'
+import { getCurrentSeed, addSeeds, removeSeeds } from '../seeds'
+import tiles from '../tiles'
 
 const currentTool = {
   ref: tools[0],
@@ -12,6 +13,7 @@ const currentTool = {
 
     const { column, row } = selectedCell
     const crop = grid[row][column]
+    const currentSeed = getCurrentSeed()
 
     if (!currentTool.ref.usedOn.includes(crop.type))
       return
@@ -27,10 +29,19 @@ const currentTool = {
         break
 
       case ToolId.SeedBag:
-        grid[row][column] = createTile(seeds[currentSeed.ref.id].tile)
+        if (currentSeed.amount <= 0) break
+        const tileType = Object.entries(tiles).find(([key, value]) => value.seed?.id === currentSeed.id)?.[0]
+        if (tileType) {
+          grid[row][column] = createTile(Number(tileType))
+          removeSeeds(currentSeed, 1)
+        }
         break
-      
+
       case ToolId.Hoe:
+      case ToolId.Sickle:
+        if (!crop.seed || crop.stage < crop.stages.length - 1) break
+        addSeeds(crop.seed, 2)
+        grid[row][column] = createTile(TileType.Grass)
         break
     }
   }

@@ -1,3 +1,5 @@
+import seeds, { Seed, SeedId } from '../seeds/seeds'
+
 interface TileStage {
   char: string
   color: string
@@ -6,6 +8,7 @@ interface TileStage {
 export interface Tile {
   type: TileType
   name: string
+  seed: Seed | null
   growRate: number
   background: string
   stage: number
@@ -22,9 +25,20 @@ export enum TileType {
   CultivatedDirt
 }
 
-const tiles = {
+type Tiles = {
+  [key in TileType]: {
+    name: string
+    seed: Seed | null
+    growRate: number
+    background: string
+    stages: TileStage[]
+  }
+}
+
+const tiles: Tiles = {
   [TileType.Grass]: {
     name: 'Grass',
+    seed: null,
     growRate: 0.0001,
     background: '#43260f',
     stages: [
@@ -36,6 +50,7 @@ const tiles = {
 
   [TileType.Wheat]: {
     name: 'Wheat',
+    seed: seeds[SeedId.Wheat],
     growRate: 0.0002,
     background: '#43260f',
     stages: [
@@ -47,6 +62,7 @@ const tiles = {
 
   [TileType.Corn]: {
     name: 'Corn',
+    seed: seeds[SeedId.Corn],
     growRate: 0.0005,
     background: '#43260f',
     stages: [
@@ -59,6 +75,7 @@ const tiles = {
   
   [TileType.Carrot]: {
     name: 'Carrot',
+    seed: seeds[SeedId.Carrot],
     growRate: 0.0008,
     background: '#43260f',
     stages: [
@@ -69,6 +86,7 @@ const tiles = {
 
   [TileType.Potato]: {
     name: 'Potato',
+    seed: seeds[SeedId.Potato],
     growRate: 0.001,
     background: '#43260f',
     stages: [
@@ -79,6 +97,7 @@ const tiles = {
 
   [TileType.Beet]: {
     name: 'Beets',
+    seed: seeds[SeedId.Beet],
     growRate: 0.0005,
     background: '#43260f',
     stages: [
@@ -89,6 +108,7 @@ const tiles = {
 
   [TileType.CultivatedDirt]: {
     name: 'Cultivated Dirt',
+    seed: null, 
     growRate: 1,
     background: '#43260f',
     stages: [

@@ -1,37 +1,52 @@
-import seeds from './seeds'
-import currentSeed from './currentSeed'
 import tiles from '../tiles'
+import { getCurrentSeed, setCurrentSeed, onUpdate }  from './seeds'
+
+import type { Seed } from './seeds'
 
 const container = document.querySelector('.seed-selector')
-
 const title = document.createElement('h2')
-const options = seeds.map(({ id, name, tile: tileType }) => {
-  const option = document.createElement('div')
-  const tile = tiles[tileType]
 
-  option.innerText = tile.stages[tile.stages.length - 1].char
-  option.classList.add('seed')
-  option.setAttribute('title', name)
-  option.style.color = tile.stages[tile.stages.length - 1].color
+const setTitle = (seed: Seed) => {
+  title.innerText = `Seed: ${seed.name} (${seed.amount})`
+}
 
-  if (currentSeed.ref.id === id)
-    option.classList.add('selected')
-
-  option.addEventListener('click', (e) => {
-    const newSeed = seeds.find(seed => seed.id === id)
-
-    if (newSeed) {
-      currentSeed.ref = newSeed
-      title.innerText = `Seed: ${newSeed.name}`
-    }
-
-    options.forEach(option => option.classList.remove('selected'))
-    option.classList.add('selected')
-  })
-
-  return option
+onUpdate((seed) => {
+  if (seed.id === getCurrentSeed().id) setTitle(seed)
 })
 
-title.innerText = `Seed: ${currentSeed.ref.name}`
+console.log(tiles)
+
+const options =
+  Object
+    .values(tiles)
+    .filter(tile => tile.seed)
+    .map((tile) => {
+      const option = document.createElement('div')
+
+      if (!tile.seed) return option
+  
+      option.innerText = tile.stages[tile.stages.length - 1].char
+      option.classList.add('seed')
+      option.setAttribute('title', tile.seed.name)
+      option.style.color = tile.stages[tile.stages.length - 1].color
+
+      if (getCurrentSeed().id === tile.seed.id)
+        option.classList.add('selected')
+
+      option.addEventListener('click', (e) => {
+        if (!tile.seed) return
+
+        setCurrentSeed(tile.seed)
+        setTitle(tile.seed)
+
+        options.forEach(option => option.classList.remove('selected'))
+        option.classList.add('selected')
+      })
+
+      return option
+    })
+
+setTitle(getCurrentSeed())
+
 
 container?.append(title, ...options)
