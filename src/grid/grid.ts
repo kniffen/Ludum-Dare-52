@@ -1,12 +1,9 @@
-import {
-  createTile,
-  TileType
-} from '../tiles'
-
-import type { Tile } from '../tiles'
+import tiles, {createTile, TileType, Tile } from '../tiles'
 
 export const columns = 20
 export const rows    = 15
+
+const grass = tiles[TileType.Grass]
 
 export const grid: Tile[][] =
   Array(rows)
@@ -17,7 +14,7 @@ export const grid: Tile[][] =
         .map(n =>
           createTile(
             TileType.Grass,
-            Math.floor(Math.random() * (2 - 0 + 1) + 0)
+            Math.floor(Math.random() * (grass.stages.length - 1 + 1) + 1)
           )
         )
     )
