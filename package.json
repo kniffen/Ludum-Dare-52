@@ -2,9 +2,12 @@
   "name": "ludum-dare-52",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "homepage": "https://kniffen.github.io/ludum-dare-52",
   "scripts": {
     "start": "npx parcel src/index.html",
+    "build": "npx parcel build src/index.html",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,8 +19,8 @@
   "bugs": {
     "url": "https://github.com/kniffen/Ludum-Dare-52/issues"
   },
-  "homepage": "https://github.com/kniffen/Ludum-Dare-52#readme",
   "devDependencies": {
+    "gh-pages": "^4.0.0",
     "parcel": "^2.8.2"
   }
 }
