@@ -14,8 +14,6 @@ onUpdate((seed) => {
   if (seed.id === getCurrentSeed().id) setTitle(seed)
 })
 
-console.log(tiles)
-
 const options =
   Object
     .values(tiles)
