@@ -9,13 +9,15 @@ if (!ctx)
 
 ctx.font = '3rem Monospace'
 
-const metrics    = ctx.measureText('#')
-const tileHeight = metrics.fontBoundingBoxAscent + metrics.fontBoundingBoxDescent + 1
+const metrics    = ctx.measureText('░')
+const tileHeight = metrics.actualBoundingBoxAscent + metrics.actualBoundingBoxDescent + 1
 const tileWidth  = metrics.width
 const width      = tileWidth  * columns
 const height     = tileHeight * rows
-const marginTop  = metrics.fontBoundingBoxAscent
+const marginTop  = metrics.actualBoundingBoxAscent
 const marginLeft = 0
+
+console.log(metrics)
 
 canvas.width        = width  * ratio
 canvas.height       = height * ratio
